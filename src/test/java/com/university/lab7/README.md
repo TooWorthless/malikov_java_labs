@@ -1,4 +1,4 @@
-# [Лабораторна робота №7]() (Tests)
+# [Лабораторна робота №7](https://github.com/TooWorthless/malikov_java_labs/blob/main/src/main/java/com/university/lab7/README.md) (Tests)
 
 ## Опис тестів ECommercePlatformTest, OrderTest, ProductTest, UserTest:
 * #### testValidOrderCreation: Перевірка правильності створення замовлення.

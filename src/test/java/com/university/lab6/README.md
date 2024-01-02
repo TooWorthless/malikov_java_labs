@@ -1,4 +1,4 @@
-# Лабораторна робота №6 (Tests)
+# [Лабораторна робота №6](https://github.com/TooWorthless/malikov_java_labs/blob/main/src/main/java/com/university/lab6/README.md) (Tests)
 
 ## Опис тестів CinemaTest:
 * testCinemaSeatsInit - Перевірка ініціалізації місць для відвідувачів (seats)

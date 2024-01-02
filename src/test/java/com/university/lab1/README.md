@@ -1,4 +1,4 @@
-# Лабораторна робота №1 (Tests)
+# [Лабораторна робота №1](https://github.com/TooWorthless/malikov_java_labs/blob/main/src/main/java/com/university/lab1/README.md) (Tests)
 
 ## Опис тестів BookTest:
 * testGetTitle - перевірка правильності отримання назви книги

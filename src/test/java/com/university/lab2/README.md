@@ -1,4 +1,4 @@
-# Лабораторна робота №2 (Tests)
+# [Лабораторна робота №2](https://github.com/TooWorthless/malikov_java_labs/blob/main/src/main/java/com/university/lab2/README.md) (Tests)
 
 ## Опис тестів BookTest:
 * testIncorrectTitle - перевірка правильності реагування програми на некорректні значення в полі Title

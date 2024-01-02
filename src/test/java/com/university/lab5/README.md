@@ -1,4 +1,4 @@
-# Лабораторна робота №5 (Tests)
+# [Лабораторна робота №5](https://github.com/TooWorthless/malikov_java_labs/blob/main/src/main/java/com/university/lab5/README.md) (Tests)
 
 ## Опис тестів BankAccountTest:
 * testDeposit - Перевірка збілшення загальної суми після додавання грошей на баланс

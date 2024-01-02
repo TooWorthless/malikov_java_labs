@@ -1,4 +1,4 @@
-# Лабораторна робота №4.2 (Hard) (Tests)
+# [Лабораторна робота №4.2](https://github.com/TooWorthless/malikov_java_labs/blob/main/src/main/java/com/university/lab4_2/README.md) (Hard) (Tests)
 
 ## Опис тестів DecoderTest:
 * testEncodingByVowels - Перевірка правильності кодування слова за допомогою методу кодування голосних
