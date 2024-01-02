@@ -29,7 +29,7 @@
 * Додано тести та приклад виокристання класів
 
 ## Tests:
-### [LB5_Tests]()
+### [LB5_Tests](https://github.com/TooWorthless/malikov_java_labs/blob/main/src/test/java/com/university/lab5/README.md)
 
 ## Висновок:
 У ході виконання лабораторної роботи №5 мною було отримано розуміння теми Exceptions, зобуто навички створення і використання своїх власних винятків в мові програмування Java.

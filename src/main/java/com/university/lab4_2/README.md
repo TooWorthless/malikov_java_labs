@@ -13,7 +13,7 @@
 4. Створіть функцію main для демонстрації вашого декодера з прикладами зашифрованих повідомлень.
 
 ## Tests:
-### [LB4.2_Tests]()
+### [LB4.2_Tests](https://github.com/TooWorthless/malikov_java_labs/blob/main/src/test/java/com/university/lab4_2/README.md)
 
 ## Висновок:
 У ході виконання лабораторної роботи №4.2 (Hard) мною було отриманно навчки використання regex та StringBuilder/StringBuffer і також розроблено клас,

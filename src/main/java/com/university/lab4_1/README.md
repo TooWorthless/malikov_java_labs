@@ -11,7 +11,7 @@
 * Створено тест IsPalindromeTest
 
 ## Tests:
-### [LB4.1_Tests]()
+### [LB4.1_Tests](https://github.com/TooWorthless/malikov_java_labs/blob/main/src/test/java/com/university/lab4_1/README.md)
 
 ## Висновок:
 У ході виконання лабораторної роботи №4_1 мною було отримано досвід роботи з строками в мові програмування Java.

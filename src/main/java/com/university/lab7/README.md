@@ -73,7 +73,7 @@
 
 
 ## Tests:
-### [LB7_Tests]()
+### [LB7_Tests](https://github.com/TooWorthless/malikov_java_labs/blob/main/src/test/java/com/university/lab7/README.md)
 
 
 ## Висновок:

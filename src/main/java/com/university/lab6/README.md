@@ -18,7 +18,7 @@
 * Створено клас-тест CinemaTest - містить тести
 
 ## Tests:
-### [LB6_Tests]()
+### [LB6_Tests](https://github.com/TooWorthless/malikov_java_labs/blob/main/src/test/java/com/university/lab6/README.md)
 
 ## Висновок:
 У ході виконання лабораторної роботи №6 я навчився працювати з масивами в мові програмування Java.
