@@ -29,20 +29,20 @@ public class OrderTest {
     @Test
     public void testGetOrderStatus() {
         Order order = new Order(1, prods);
-        assertEquals(Order.OrderStatuses.CREATED, order.getStatus());
+        assertEquals(OrderStatus.CREATED, order.getStatus());
 
         order.PlaceOrder();
-        assertEquals(Order.OrderStatuses.PENDING, order.getStatus());
+        assertEquals(OrderStatus.PENDING, order.getStatus());
 
         order.ProcessOrder();
-        assertEquals(Order.OrderStatuses.PROCESSED, order.getStatus());
+        assertEquals(OrderStatus.PROCESSED, order.getStatus());
     }
 
     @Test
     public void testCreateOrderWithArrayList() {
         Order order = new Order(1, prods);
         assertEquals(1, order.getOrderId());
-        assertEquals(Order.OrderStatuses.CREATED, order.getStatus());
+        assertEquals(OrderStatus.CREATED, order.getStatus());
         assertEquals(prods, order.getProds());
     }
 
@@ -50,7 +50,7 @@ public class OrderTest {
     public void testCreateOrderWithCart() {
         Order order = new Order(1, cart);
         assertEquals(1, order.getOrderId());
-        assertEquals(Order.OrderStatuses.CREATED, order.getStatus());
+        assertEquals(OrderStatus.CREATED, order.getStatus());
         assertEquals(cart.getProds(), order.getProds());
     }
 
@@ -58,7 +58,7 @@ public class OrderTest {
     public void testPlaceOrder() {
         Order order = new Order(1, prods);
         order.PlaceOrder();
-        assertEquals(Order.OrderStatuses.PENDING, order.getStatus());
+        assertEquals(OrderStatus.PENDING, order.getStatus());
     }
 
     @Test
@@ -74,7 +74,7 @@ public class OrderTest {
         order.PlaceOrder();
         order.ProcessOrder();
 
-        assertEquals(Order.OrderStatuses.PROCESSED, order.getStatus());
+        assertEquals(OrderStatus.PROCESSED, order.getStatus());
     }
 
     @Test
