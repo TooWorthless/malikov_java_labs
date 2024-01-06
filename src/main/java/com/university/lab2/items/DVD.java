@@ -2,54 +2,36 @@ package com.university.lab2.items;
 
 import com.university.lab2.item.Item;
 
-
 public class DVD extends Item {
-    private int duration;
+    private int _duration;
 
-    
-    public DVD(String title, int duration) {
-        super(title);
+    public DVD(String title, String uniqueId, int duration) {
+        super(title, uniqueId);
 
-        if (duration <= 0) {
-            throw new IllegalArgumentException("Incorrect duration value!");
+        if(title.length() <= 0) {
+            throw new IllegalArgumentException("Incorrect title name!");
         }
-        this.duration = duration;
-    }
-
-
-    public int getDuration() {
-        return duration;
-    }
-
-    public void setDuration(int duration) {
-        if (duration <= 0) {
-            throw new IllegalArgumentException("Incorrect duration value!");
+        if(duration <= 0) {
+            throw new IllegalArgumentException("Incorrect duration!");
         }
-        this.duration = duration;
+        if(uniqueId.length() <= 0) {
+            throw new IllegalArgumentException("Incorrect uniqueId name!");
+        }
+
+        this._duration = duration;
     }
 
+    public int get_duration() {
+        return _duration;
+    }
 
     @Override
     public void borrowItem() {
-        if(this.isBorrowed) {
-            throw new RuntimeException("This DVD is borrowed!");
-        }
-        System.out.println("DVD borrowed: " + this.title + " - (ID: " + this.uniqueID + ")");
-        this.isBorrowed = true;
+        setIsBorrowed(true);
     }
 
     @Override
     public void returnItem() {
-        if(!this.isBorrowed) {
-            throw new RuntimeException("This DVD is unborrowed!");
-        }
-        System.out.println("DVD unborrowed: " + this.title + " - (ID: " + this.uniqueID + ")");
-        this.isBorrowed = false;
-    }
-
-
-    @Override
-    public String toString() {
-        return "DVD info:\n{\n   Title: " + this.title + "\n   Duration: " + this.duration + "\n}\n";
+        setIsBorrowed(false);
     }
 }

@@ -17,22 +17,22 @@ public class PatronTest {
 
     @BeforeEach
     void setUp() {
-        this.book = new Book("BookTtile", "BookAuthor");
-        this.patron = new Patron("PatronName");
+        this.book = new Book("BookTtile", "1", "BookAuthor");
+        this.patron = new Patron("PatronName", "1");
     }
 
     @Test
     void testBorrow() {
-        this.patron.borrow(this.book);
-        List<Item> testItemsList = this.patron.getBorrowedItems();
+        this.patron.borrowItem(this.book);
+        List<Item> testItemsList = this.patron.get_borrowedItems();
         assertEquals(testItemsList.get(0), this.book);
     }
 
     @Test
     void testReturnItem() {
-        this.patron.borrow(this.book);
+        this.patron.borrowItem(this.book);
         this.patron.returnItem(this.book);
-        assertTrue(this.patron.getBorrowedItems().isEmpty());
+        assertTrue(this.patron.get_borrowedItems().isEmpty());
     }
 
     @Test

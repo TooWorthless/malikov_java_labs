@@ -7,35 +7,18 @@ public class Main {
     public static void main(String[] args) {
         Library lib = new Library();
 
-        Book book1 = new Book("BookName1", "BookAuthorName1");
-        Book book2 = new Book("BookName2", "BookAuthorName2");
-        Book book3 = new Book("BookName3", "BookAuthorName3");
+        Book book1 = new Book("BookName1", "1", "BookAuthorName1");
+        Book book2 = new Book("BookName2", "2", "BookAuthorName2");
+        Book book3 = new Book("BookName3", "2", "BookAuthorName3");
 
-        lib.add(book1);
-        lib.add(book2);
-        lib.add(book3);
+        lib.addItem(book1);
+        lib.addItem(book2);
+        lib.addItem(book3);
 
         lib.listAvailable();
-        // Book info:
-        // {
-        //    Title: BookName1       
-        //    Author: BookAuthorName1
-        // }
-        // 
-        // Book info:
-        // {
-        //    Title: BookName2       
-        //    Author: BookAuthorName2
-        // }
-        // 
-        // Book info:
-        // {
-        //    Title: BookName3       
-        //    Author: BookAuthorName3
-        // }
 
-        lib.remove(book2);
-        lib.remove(book3);
+        lib.removeItem(book2);
+        lib.removeItem(book3);
 
         lib.listAvailable();
         // Book info:
@@ -45,45 +28,26 @@ public class Main {
         // }
         // 
 
-        DVD dvd1 = new DVD("DVD_Name1", 10);
-        DVD dvd2 = new DVD("DVD_Name2", 20);
+        DVD dvd1 = new DVD("DVD_Name1", "1", 10);
+        DVD dvd2 = new DVD("DVD_Name2", "2", 20);
 
-        lib.add(dvd1);
-        lib.add(dvd2);
+        lib.addItem(dvd1);
+        lib.addItem(dvd2);
 
         lib.listAvailable();
-        // Book info:
-        // {
-        //    Title: BookName1
-        //    Author: BookAuthorName1
-        // }
-        // 
-        // DVD info:
-        // {
-        //    Title: DVD_Name1
-        //    Duration: 10
-        // }
-        // 
-        // DVD info:
-        // {
-        //    Title: DVD_Name2
-        //    Duration: 20
-        // }
 
-        Patron p1 = new Patron("Vadym");
-        Patron p2 = new Patron("Mykyta");
-        Patron p3 = new Patron("Vladislav");
+        Patron p1 = new Patron("Vadym", "1");
+        Patron p2 = new Patron("Mykyta", "2");
+        Patron p3 = new Patron("Vladislav", "3");
 
-        lib.regPatron(p1);
-        lib.regPatron(p2);
-        lib.regPatron(p3);
+        lib.registerPatron(p1);
+        lib.registerPatron(p2);
+        lib.registerPatron(p3);
 
         lib.lendItem(p1, book1);
-        // Book borrowed: BookName1 (Author: BookAuthorName1) - (ID: .....)
+
         lib.lendItem(p2, dvd1);
-        // DVD borrowed: DVD_Name1 - (ID: .....)
 
         lib.returnItem(p2, dvd1);
-        // DVD unborrowed: DVD_Name1 - (ID: .....)
     }
 }

@@ -12,18 +12,17 @@ public class DVDTest {
 
     @Test
     void testIncorrectTitle() {
-        assertThrows(IllegalArgumentException.class, () -> new DVD("", 10));
+        assertThrows(IllegalArgumentException.class, () -> new DVD("", "1", 10));
     }
 
     @Test
     void testIncorrectDuration() {
-        DVD correctBook = new DVD("DVDTitle", 60);
-        assertThrows(IllegalArgumentException.class, () -> new DVD("Title", 0));
-        assertThrows(IllegalArgumentException.class, () -> correctBook.setDuration(0));
+        DVD correctBook = new DVD("DVDTitle", "2", 60);
+        assertThrows(IllegalArgumentException.class, () -> new DVD("Title", "3", 0));
     }
 
     @Test 
     void testBorrow() {
-        assertFalse( (new DVD("Title", 120)).borrowStatus() );
+        assertFalse( (new DVD("Title", "7", 120)).getIsBorrowed() );
     }
 }

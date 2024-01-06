@@ -2,54 +2,35 @@ package com.university.lab2.items;
 
 import com.university.lab2.item.Item;
 
-
 public class Book extends Item {
-    private String author;
+    private String _author;
 
-    
-    public Book(String title, String author) {
-        super(title);
+    public Book(String title, String uniqueId, String author) {
+        super(title, uniqueId);
 
+        if(title.length() <= 0) {
+            throw new IllegalArgumentException("Incorrect title name!");
+        }
         if(author.length() <= 0) {
             throw new IllegalArgumentException("Incorrect author name!");
         }
-        this.author = author;
-    }
-
-
-    public String getAuthor() {
-        return this.author;
-    }
-
-    public void setAuthor(String author) {
-        if (author.length() == 0) {
-            throw new IllegalArgumentException("Incorrect author field value!");
+        if(uniqueId.length() <= 0) {
+            throw new IllegalArgumentException("Incorrect uniqueId name!");
         }
-        this.author = author;
+        this._author = author;
     }
 
+    public String get_author() {
+        return _author;
+    }
 
     @Override
     public void borrowItem() {
-        if(this.isBorrowed) {
-            throw new RuntimeException("This book is borrowed!");
-        }
-        System.out.println("Book borrowed: " + this.title + " (Author: " + this.author + ") " + "- (ID: " + this.uniqueID + ")");
-        this.isBorrowed = true;
+        setIsBorrowed(true);
     }
 
     @Override
     public void returnItem() {
-        if(!this.isBorrowed) {
-            throw new RuntimeException("This book is unborrowed!");
-        }
-        System.out.println("Book unborrowed: " + this.title + " (Author: " + this.author + ") " + "- (ID: " + this.uniqueID + ")");
-        this.isBorrowed = false;
-    }
-
-
-    @Override
-    public String toString() {
-        return "Book info:\n{\n   Title: " + this.title + "\n   Author: " + this.author + "\n}\n";
+        setIsBorrowed(false);
     }
 }

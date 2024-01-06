@@ -1,29 +1,34 @@
 package com.university.lab2.item;
 
-import java.util.UUID;
-
-
 public abstract class Item {
-    protected String title;
-    protected String uniqueID;
-    protected boolean isBorrowed;
+    private String _title;
+    private String _uniqueId;
+    private boolean _isBorrowed;
 
-
-    public Item(String title) {
-        if(title.length() <= 0) {
-            throw new IllegalArgumentException("Incorrect title value!");
-        }
-        this.title = title;
-        this.uniqueID = UUID.randomUUID().toString();
-        this.isBorrowed = false;
+    public Item(String title, String uniqueId) {
+        this._title = title;
+        this._uniqueId = uniqueId;
+        this._isBorrowed = false;
     }
 
-
-    public boolean borrowStatus() {
-        return this.isBorrowed;
+    public String get_title() {
+        return _title;
     }
 
+    public String get_uniqueId() {
+        return _uniqueId;
+    }
+
+    public boolean getIsBorrowed() {
+        return _isBorrowed;
+    }
+
+    public void setIsBorrowed(boolean borrowed) {
+        _isBorrowed = borrowed;
+    }
 
     public abstract void borrowItem();
+
     public abstract void returnItem();
+
 }

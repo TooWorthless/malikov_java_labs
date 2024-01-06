@@ -6,81 +6,64 @@ import java.util.List;
 import com.university.lab2.interfaces.IManageable;
 import com.university.lab2.item.Item;
 
-
-public class Library implements IManageable {
-    private ArrayList<Item> items;
-    private ArrayList<Patron> patrons;
-
-
-    public Library() {
-        this.items = new ArrayList<Item>();
-        this.patrons = new ArrayList<Patron>();
+public class Library implements IManageable{
+    private List<Item> _items;
+    private List<Patron> _patrons;
+    public Library(){
+        this._items = new ArrayList<>();
+        this._patrons = new ArrayList<>();
     }
-
-
-    public List<Item> getItems() {
-        return items;
+    public List<Patron> getPatrons(){
+        return _patrons;
     }
-    public List<Patron> getPatrons() {
-        return patrons;
+    public void registerPatron(Patron patron){
+        _patrons.add(patron);
     }
+    public void lendItem(Patron patron, Item item){
+        if (!_items.contains(item)) throw new RuntimeException("Attempt to borrow an item not present in the library");
+        if (!_patrons.contains(patron)) throw new RuntimeException("Attempt to borrow an item from a non-registered patron");
+        if (item.getIsBorrowed()) throw new RuntimeException("Attempt to borrow a borrowed item");
 
-
-    public void regPatron(Patron patron) {
-        patrons.add(patron);
+        patron.borrowItem(item);
+        item.borrowItem();
     }
-
-
-    public void lendItem(Patron patron, Item item) {
-        if (!items.contains(item)) {
-            throw new RuntimeException("Item not present in the lib!");
+    public void returnItem(Patron patron, Item item){
+        if(patron.get_borrowedItems().contains(item)){
+            patron.returnItem(item);
+            item.returnItem();
         }
-        if (!patrons.contains(patron)) {
-            throw new RuntimeException("Patron not present!");
+        else {
+            throw new IllegalArgumentException("Incorrect returnItem!");
         }
-        if (item.borrowStatus()) {
-            throw new RuntimeException("Item already borrowed!");
-        }
-        patron.borrow(item);
-    }
-    public void returnItem(Patron patron, Item item) {
-        if (!items.contains(item)) {
-            throw new RuntimeException("Item not present in the lib!");
-        }
-        if (!patrons.contains(patron)) {
-            throw new RuntimeException("Patron not present!");
-        }
-        if (!item.borrowStatus()) {
-            throw new RuntimeException("Item wasn't borrowed!");
-        }
-        patron.returnItem(item);
-    }
-
-
-    @Override
-    public void add(Item item) {
-        items.add(item);
     }
     @Override
-    public void remove(Item item) {
-        items.remove(item);
+    public void addItem(Item item){
+        _items.add(item);
     }
-
-
     @Override
-    public void listAvailable() {
-        for(Item item : items) {
-            if(!item.borrowStatus()) {
-                System.out.println(item);
+    public void removeItem(Item item){
+        _items.remove(item);
+    }
+    @Override
+    public List<Item> listAvailable(){
+       List<Item> available = new ArrayList<>();
+        for(Item item : _items){
+            if(!item.getIsBorrowed()){
+                available.add(item);
             }
         }
+        return available;
     }
     @Override
-    public void listBorrowed() {
-        for(Item item : items) {
-            if(item.borrowStatus()) {
-                System.out.println(item);
-            }
+    public List<Item> listBorrowed(){
+        List<Item> borrowed = new ArrayList<>();
+        for(Patron patron : _patrons){
+            borrowed.addAll(patron.get_borrowedItems());
         }
+        return borrowed;
+    }
+
+    public List<Item> getItems(){
+        return this._items;
     }
 }

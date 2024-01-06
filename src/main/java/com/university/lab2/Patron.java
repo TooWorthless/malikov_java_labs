@@ -2,60 +2,38 @@ package com.university.lab2;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 import com.university.lab2.item.Item;
 
-
 public class Patron {
-    private String name;
+    private String _name;
     private String ID;
-    private List<Item> borrowedItems;
-
-
-    public Patron(String name) {
-        this.name = name;
-        this.ID = UUID.randomUUID().toString();
-        this.borrowedItems = new ArrayList<>();
+    private List<Item> _borrowedItems;
+    public Patron(String name, String ID){
+        this._name = name;
+        this.ID = ID;
+        this._borrowedItems = new ArrayList<>();
     }
-
-
-    public String getName() {
-        return this.name;
+    public String get_name(){
+        return _name;
     }
-    public void setName(String name) {
-        if(name.length() <= 0) {
-            throw new IllegalArgumentException("Incorrect name!");
-        }
-        this.name = name;
-    }
-
-    public String getID() {
+    public String getID(){
         return ID;
     }
-    public void setID(String ID) {
-        this.ID = ID;
+    public List<Item> get_borrowedItems(){
+        return _borrowedItems;
     }
-
-    public List<Item> getBorrowedItems() {
-        return this.borrowedItems;
+    public void borrowItem(Item item){
+        _borrowedItems.add(item);
     }
-    public void setBorrowedItems(List<Item> borrowedItems) {
-        this.borrowedItems = borrowedItems;
-    }
+    public boolean returnItem(Item item){
 
-
-    public void borrow(Item item) {
-        borrowedItems.add(item);
-        item.borrowItem();
-    }
-
-    public void returnItem(Item item) {
-        boolean isRemoved = borrowedItems.remove(item);
+        boolean isRemoved = _borrowedItems.remove(item);
 
         if (!isRemoved) {
             throw new RuntimeException("Item removing error!");
         }
-        item.returnItem();
+        
+        return isRemoved;
     }
 }
