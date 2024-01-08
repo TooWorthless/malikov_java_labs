@@ -21,12 +21,6 @@ public class Main {
         lib.removeItem(book3);
 
         lib.listAvailable();
-        // Book info:
-        // {
-        //    Title: BookName1       
-        //    Author: BookAuthorName1
-        // }
-        // 
 
         DVD dvd1 = new DVD("DVD_Name1", "1", 10);
         DVD dvd2 = new DVD("DVD_Name2", "2", 20);
